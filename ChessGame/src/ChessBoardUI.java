@@ -20,11 +20,7 @@ public class ChessBoardUI {
         frame.setLayout(new GridLayout(8, 8));
 
         // This will add the squares to the JFrame
-        for (int row = 0; row < numberOfRows; row++) {
-            for (int column = 0; column < numberOfRows; column++) {
-                this.AddSquareUI(row, column, frame);
-            }
-        }
+        this.AddSquaresUI(frame);
 
         frame.setVisible(true); // Without this line the frame is not visible
 
@@ -34,8 +30,20 @@ public class ChessBoardUI {
 
     }
 
-    // The goal here is to add a SquareUI to the JFrame.
-    public void AddSquareUI(int row, int column, JFrame frame) {
-        frame.add(new ChessSquareUI(row, column));
+    // This will add the squares to the JFrame
+    public void AddSquaresUI(JFrame frame) {
+        for (int row = 0; row < numberOfRows; row++) {
+            for (int column = 0; column < numberOfRows; column++) {
+                frame.add(new ChessSquareUI(row, column));
+            }
+        }
     }
+
+    // the goal of this function will be to add the pieces to the UI. Issue is, I'm wondering if we add from here,
+    // or if we should have the method (background code) be the one who decides where the pieces are.
+    // EX: we check the method and if it says Tower then add tower on the square we are looking at.
+    public void AddPieces(JFrame frame) {
+
+    }
+
 }

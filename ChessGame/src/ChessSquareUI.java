@@ -20,7 +20,8 @@ public class ChessSquareUI extends JLabel implements MouseListener {
         // We want to have a1 be at the bottom left.
         coordinateX = (char) (row + 97);
         coordinateY = 8 - column;
-        pieceName = String.valueOf("\u2654");
+        //pieceName = String.valueOf("\u2654");
+        pieceName = " ";
         //String noName = "\u2654";
 
         // Now the goal is to turn this into a label.
@@ -40,32 +41,43 @@ public class ChessSquareUI extends JLabel implements MouseListener {
         this.setHorizontalAlignment(0);
         this.setFont(new Font(Font.MONOSPACED,Font.PLAIN, 80));
         this.setText(pieceName);
+
+        // Add the mouse listener
+        this.addMouseListener(this);
     }
 
     // These lines are related to the implementation of the MouseListener interface which lets us control
     // what happens when we mouse click over the lable.
     @Override
     public void mouseClicked(MouseEvent e) {
+        // We want to have the square selected for either the piece we want to move, or where we want to go.
+
+        // I'm thinking that we might need a class that acts as a game manager.
+        // Maybe it's possible to make a class only instanciable once, that way we could have a move manager.
+        // EX: if move manager not created, create it and add the coords for this square. If created add the coords
+        // to the second square. Then check stuff like if the move is possible.
+        System.out.println("Coordinates of square: x = " + coordinateX + " y = " + coordinateY);
 
     }
 
     @Override
     public void mousePressed(MouseEvent e) {
-
+        // For now, we don't want to take into account when we hold the mouse on the square.
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-
+        // We want to have the square selected for either the piece we want to move, or where we want to go.
+        System.out.println("Coordinates of square: x = " + coordinateX + " y = " + coordinateY);
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-
+        // We don't want to take into account when the mouse enters the square.
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-
+        // We don't want to take into account when the mouse leaves the square.
     }
 }
