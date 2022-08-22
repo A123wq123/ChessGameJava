@@ -17,24 +17,25 @@ public class ChessBoardUI {
         frame.setTitle("ChessGame");
 
         // This makes it so the JFrame now obeys under the GridLayout Format (gives us a grid).
-        frame.setLayout(new GridLayout(4, 4));
+        frame.setLayout(new GridLayout(8, 8));
 
         // This will add the squares to the JFrame
         for (int row = 0; row < numberOfRows; row++) {
-            for (int collumn = 0; collumn < numberOfRows; collumn++) {
-                
+            for (int column = 0; column < numberOfRows; column++) {
+                this.AddSquareUI(row, column, frame);
             }
         }
 
         frame.setVisible(true); // Without this line the frame is not visible
 
         // The following two lines are to add a picture as the APP logo while running the code.
-        //ImageIcon ChessAppImage = new ImageIcon("AppImage.png");
-        //frame.setIconImage(ChessAppImage.getImage());
+        // ImageIcon ChessAppImage = new ImageIcon("AppImage.png");
+        // frame.setIconImage(ChessAppImage.getImage());
 
     }
 
-    public void AddSquareUI() {
-
+    // The goal here is to add a SquareUI to the JFrame.
+    public void AddSquareUI(int row, int column, JFrame frame) {
+        frame.add(new ChessSquareUI(row, column));
     }
 }
