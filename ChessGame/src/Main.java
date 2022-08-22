@@ -1,5 +1,8 @@
+// This is the main, we should only have it do "Launch Game" by the end of the project.
+
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        new ChessBoardUI();
     }
 }
