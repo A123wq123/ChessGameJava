@@ -18,8 +18,8 @@ public class ChessSquareUI extends JLabel implements MouseListener {
     public ChessSquareUI(int row, int column) {
         // This line takes the int and associates it with the corresponding char character from the ascii table.
         // We want to have a1 be at the bottom left.
-        coordinateX = (char) (row + 97);
-        coordinateY = 8 - column;
+        coordinateX = (char) (column + 97);
+        coordinateY = 8 - row;
         //pieceName = String.valueOf("\u2654");
         pieceName = " ";
         //String noName = "\u2654";

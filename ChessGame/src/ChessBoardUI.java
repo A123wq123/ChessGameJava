@@ -3,12 +3,14 @@
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class ChessBoardUI {
 
     // The canvas on which we will work to implement the UI.
     JFrame frame;
-    int numberOfRows = 8;
+    private static final int numberOfRows = 8;
+    private final ArrayList<ChessSquareUI> list = new ArrayList<ChessSquareUI>();
 
     public ChessBoardUI() {
         frame = new JFrame(); // Create the JFrame.
@@ -20,7 +22,8 @@ public class ChessBoardUI {
         frame.setLayout(new GridLayout(8, 8));
 
         // This will add the squares to the JFrame
-        this.AddSquaresUI(frame);
+        this.AddSquaresUI();
+        this.AddPieces();
 
         frame.setVisible(true); // Without this line the frame is not visible
 
@@ -31,10 +34,14 @@ public class ChessBoardUI {
     }
 
     // This will add the squares to the JFrame
-    public void AddSquaresUI(JFrame frame) {
+    // Going to remove the row and column of ChessSquareUI as it doesn't have it's place in UI, leaving for testing
+    // purposes.
+    private void AddSquaresUI() {
         for (int row = 0; row < numberOfRows; row++) {
             for (int column = 0; column < numberOfRows; column++) {
-                frame.add(new ChessSquareUI(row, column));
+                ChessSquareUI square = new ChessSquareUI(row, column);
+                frame.add(square);
+                list.add(square);
             }
         }
     }
@@ -42,8 +49,43 @@ public class ChessBoardUI {
     // the goal of this function will be to add the pieces to the UI. Issue is, I'm wondering if we add from here,
     // or if we should have the method (background code) be the one who decides where the pieces are.
     // EX: we check the method and if it says Tower then add tower on the square we are looking at.
-    public void AddPieces(JFrame frame) {
+    private void AddPieces() {
+        AddWhitePieces();
+    }
 
+    private void AddWhitePieces() {
+        // Add Pawns
+        for (int i = 0; i < numberOfRows; i++) {
+            getSquareUI(6, i).setText(String.valueOf("\u2659"));
+        }
+        // Add towers
+        for (int i  = 0; i < 2; i++) {
+            getSquareUI(7, i*7).setText(String.valueOf("\u2656"));
+        }
+        // Add knights
+        for (int i  = 0; i < 2; i++) {
+            getSquareUI(7, 1+i*5).setText(String.valueOf("\u2658"));
+        }
+        // Add bishops
+        for (int i  = 0; i < 2; i++) {
+            getSquareUI(7, 2+i*3).setText(String.valueOf("\u2657"));
+        }
+        // Add queen
+        getSquareUI(7,3).setText(String.valueOf("\u2655"));
+        // Add king
+        getSquareUI(7,4).setText(String.valueOf("\u2654"));
+
+
+    }
+
+    private void AddBlackPieces() {
+
+    }
+
+    // Gets us the square from the grid.
+    private ChessSquareUI getSquareUI(int row, int column) {
+        int index = numberOfRows * row + column;
+        return list.get(index);
     }
 
 }
