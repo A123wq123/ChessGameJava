@@ -51,6 +51,7 @@ public class ChessBoardUI {
     // EX: we check the method and if it says Tower then add tower on the square we are looking at.
     private void AddPieces() {
         AddWhitePieces();
+        AddBlackPieces();
     }
 
     private void AddWhitePieces() {
@@ -74,12 +75,29 @@ public class ChessBoardUI {
         getSquareUI(7,3).setText(String.valueOf("\u2655"));
         // Add king
         getSquareUI(7,4).setText(String.valueOf("\u2654"));
-
-
     }
 
     private void AddBlackPieces() {
-
+        // Add Pawns
+        for (int i = 0; i < numberOfRows; i++) {
+            getSquareUI(1, i).setText(String.valueOf("\u265F"));
+        }
+        // Add towers
+        for (int i  = 0; i < 2; i++) {
+            getSquareUI(0, i*7).setText(String.valueOf("\u265C"));
+        }
+        // Add knights
+        for (int i  = 0; i < 2; i++) {
+            getSquareUI(0, 1+i*5).setText(String.valueOf("\u265E"));
+        }
+        // Add bishops
+        for (int i  = 0; i < 2; i++) {
+            getSquareUI(0, 2+i*3).setText(String.valueOf("\u265D"));
+        }
+        // Add queen
+        getSquareUI(0,3).setText(String.valueOf("\u265B"));
+        // Add king
+        getSquareUI(0,4).setText(String.valueOf("\u265A"));
     }
 
     // Gets us the square from the grid.
