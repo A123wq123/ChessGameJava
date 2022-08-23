@@ -6,8 +6,9 @@
 import java.util.ArrayList;
 
 abstract class ChessABSPieceModel {
-    private ChessSquareModel currentSquare;
-    private boolean isWhite;
+    private ChessSquareModel currentSquare; // Debating if the piece should know this considering that the
+                                            // square also knows it's piece.
+    private String color; // We will keep this to 3 options, WHITE, BLACK and NULL
     abstract public ArrayList<ChessSquareModel> GetListMoves();
     abstract public boolean CheckIfMoveLegal(ChessSquareModel destSquare);
 }

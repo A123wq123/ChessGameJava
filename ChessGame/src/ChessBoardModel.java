@@ -21,9 +21,14 @@ public class ChessBoardModel {
     }
 
 
-    public void AddPieceToSquare(int row, int column) {
+    public void AddPieceToSquare(int row, int column, ChessABSPieceModel piece) {
         // Once the piece class has been created, add it here in order to add a piece to a specific square.
         // Also dupe this method but have one take in a ChessSquareModel instead of coordinates.
+        getSquareModel(row, column).AddPiece(piece);
+    }
+
+    public void AddPieceToSquare(ChessSquareModel square, ChessABSPieceModel piece) {
+        square.AddPiece(piece);
     }
 
     public void RemovePieceFromSquare(int row, int column) {
