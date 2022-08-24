@@ -3,6 +3,7 @@
 // ChessSquareModel has yet to be created.
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class ChessBoardModel {
     private final ArrayList<ChessSquareModel> squareList = new ArrayList<>();
@@ -11,9 +12,9 @@ public class ChessBoardModel {
     private ChessSquareModel positionOfBlackKing;
 
     public ChessBoardModel() {
-        for (int row = 0; row < 8; row++) {
-            for (int column = 0; column < 8; column++) {
-                squareList.add(new ChessSquareModel());
+        for (int row = 0; row < numberOfRows; row++) {
+            for (int column = 0; column < numberOfRows; column++) {
+                squareList.add(new ChessSquareModel(row, column));
             }
         }
     }
@@ -38,8 +39,21 @@ public class ChessBoardModel {
         // Dupe this method to have one take a ChessSquareModel as opposed to coordinate.
     }
 
-    public boolean isKingUnderAttack() {
-        return true;
+    public ArrayList<ChessSquareModel> isSquareUnderAttack(String colorOfAttacker) {
+
+        return null;
+    }
+
+    public ChessSquareModel getPositionOfWhiteKing() {return this.positionOfWhiteKing;}
+    public ChessSquareModel getPositionOfBlackKing() {return this.positionOfBlackKing;}
+
+    public ChessSquareModel getPositionOfKing(String colorOfKing) {
+        if (Objects.equals(colorOfKing, "WHITE")) {
+            return getPositionOfWhiteKing();
+        }
+        else {
+            return getPositionOfBlackKing();
+        }
     }
 
 }

@@ -6,7 +6,8 @@
 import java.util.ArrayList;
 
 abstract class ChessABSPieceModel {
-    private String color; // We will keep this to 3 options, WHITE, BLACK and NULL
+    protected ChessBoardModel board;
+    protected String color; // We will keep this to 3 options, WHITE, BLACK and NULL
     abstract public ArrayList<ChessSquareModel> getListMoves(ChessSquareModel currentPos);
     abstract public boolean checkIfMoveLegal(ChessSquareModel currentPos, ChessSquareModel destSquare);
 }
