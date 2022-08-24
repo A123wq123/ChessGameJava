@@ -7,6 +7,8 @@ import java.util.ArrayList;
 public class ChessBoardModel {
     private final ArrayList<ChessSquareModel> squareList = new ArrayList<>();
     private final static int numberOfRows = 8;
+    private ChessSquareModel positionOfWhiteKing;
+    private ChessSquareModel positionOfBlackKing;
 
     public ChessBoardModel() {
         for (int row = 0; row < 8; row++) {
