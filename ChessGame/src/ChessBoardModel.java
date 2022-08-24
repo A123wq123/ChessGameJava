@@ -19,15 +19,15 @@ public class ChessBoardModel {
         }
     }
 
-    public ChessSquareModel getSquareModel(int row, int column) {
-        return squareList.get(row * numberOfRows + column);
+    public ChessSquareModel getSquareModel(Position position) {
+        return squareList.get(position.getCoordX() * numberOfRows + position.getCoordY());
     }
 
 
-    public void addPieceToSquare(int row, int column, ChessABSPieceModel piece) {
+    public void addPieceToSquare(Position position, ChessABSPieceModel piece) {
         // Once the piece class has been created, add it here in order to add a piece to a specific square.
         // Also dupe this method but have one take in a ChessSquareModel instead of coordinates.
-        getSquareModel(row, column).addPiece(piece);
+        getSquareModel(position).addPiece(piece);
     }
 
     public void addPieceToSquare(ChessSquareModel square, ChessABSPieceModel piece) {

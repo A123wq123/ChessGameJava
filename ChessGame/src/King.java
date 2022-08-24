@@ -8,17 +8,21 @@ public class King extends ChessABSPieceModel {
         this.color = colorOfPiece;
     }
 
+    public static boolean coordValid(Position position) {
+        return ((position.getCoordX() < 8 ) && (position.getCoordY() >= 0));
+    }
+
     @Override
-    public ArrayList<ChessSquareModel> getListMoves(ChessSquareModel currentPos) {
+    public ArrayList<ChessSquareModel> getListMoves(ChessSquareModel currentSquare) {
 
         ArrayList<ChessSquareModel> listOfMoves = new ArrayList<>();
-        int[] coordinates = currentPos.getCoordinates();
+        Position currentPosition = currentSquare.getPosition();
 
         for (int rowMove : new int[] {-1, 0, 1}) {
             for (int columnMove : new int[] {-1, 0, 1}) {
-                ChessSquareModel destSquare = this.board.getSquareModel(coordinates[0] + rowMove, coordinates[1] +
-                        columnMove);
-                if (checkIfMoveLegal(currentPos, destSquare)) {
+                ChessSquareModel destSquare = this.board.getSquareModel(currentPosition.sumPosition(rowMove, columnMove));
+                if (checkIfMoveLegal(currentSquare, destSquare) && (coordValid(currentPosition)) &&
+                        (coordValid(currentPosition))) {
                     listOfMoves.add(destSquare);
                 }
             }
@@ -28,12 +32,10 @@ public class King extends ChessABSPieceModel {
     }
 
     @Override
-    public boolean checkIfMoveLegal(ChessSquareModel currentPos, ChessSquareModel destSquare) {
-        // Check if the king is in check.
-        if (Objects.equals(this.color, destSquare.getPiece().color)) {
-            return false;
-        }
+    protected boolean checkIfMoveLegal(ChessSquareModel currentPos, ChessSquareModel destSquare) {
+        // This method checks if the move is legal but doesn't look for if the king of the player is put in check.
 
-        return true;
+        // Check #1, not eating a piece of the same color as us.
+        return !Objects.equals(this.color, destSquare.getPiece().color);
     }
 }

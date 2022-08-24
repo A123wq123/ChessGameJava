@@ -1,13 +1,13 @@
 public class ChessSquareModel {
 
     private ChessABSPieceModel piece;
-    private int[] coordinates;
+    private Position position;
 
     public ChessSquareModel(int row, int column) {
-        this.coordinates = new int[] {row, column};
+        this.position = new Position(row, column);
     }
 
-    public int[] getCoordinates() { return coordinates; }
+    public Position getPosition() { return position; }
 
     public ChessABSPieceModel getPiece() { return piece; }
 
