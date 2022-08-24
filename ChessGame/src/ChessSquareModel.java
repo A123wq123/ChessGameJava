@@ -7,11 +7,11 @@ public class ChessSquareModel {
         // implementation to be finalized when the class NULLPiece has been written.
     }
 
-    public void AddPiece(ChessABSPieceModel newPiece) {
+    public void addPiece(ChessABSPieceModel newPiece) {
         piece = newPiece;
     }
 
-    public void RemovePiece() {
+    public void removePiece() {
         // Implementation to be finalized when NULLPiece has been created.
     }
 }

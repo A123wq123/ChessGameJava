@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+// This might become useless / no longer needed.
 public class ChessNULLPieceModel extends ChessABSPieceModel {
 
     public ChessNULLPieceModel(ChessSquareModel square) {
@@ -7,12 +8,12 @@ public class ChessNULLPieceModel extends ChessABSPieceModel {
     }
 
     @Override
-    public ArrayList<ChessSquareModel> GetListMoves() {
+    public ArrayList<ChessSquareModel> getListMoves() {
         return null;
     }
 
     @Override
-    public boolean CheckIfMoveLegal(ChessSquareModel destSquare) {
+    public boolean checkIfMoveLegal(ChessSquareModel destSquare) {
         return false;
     }
 }
