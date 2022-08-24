@@ -34,7 +34,7 @@ public class ChessBoardUI {
     }
 
     // This will add the squares to the JFrame
-    // Going to remove the row and column of ChessSquareUI as it doesn't have it's place in UI, leaving for testing
+    // Going to remove the row and column of ChessSquareUI as it doesn't have its place in UI, leaving for testing
     // purposes.
     private void addSquaresUI() {
         for (int row = 0; row < numberOfRows; row++) {

@@ -68,7 +68,7 @@ public class ChessSquareUI extends JLabel implements MouseListener {
     @Override
     public void mouseReleased(MouseEvent e) {
         // We want to have the square selected for either the piece we want to move, or where we want to go.
-        System.out.println("Coordinates of square: x = " + coordinateX + " y = " + coordinateY);
+//        System.out.println("Coordinates of square: x = " + coordinateX + " y = " + coordinateY);
     }
 
     @Override
