@@ -16,6 +16,12 @@ public class Position {
         return new Position(this.coordX + position.getCoordX(), this.coordY + position.getCoordY());
     }
 
+    public boolean isValid() {
+        return (((this.coordX < ChessBoardModel.numberOfRows ) && (this.coordX >= 0))
+                && ((this.coordY < ChessBoardModel.numberOfRows ) && (this.coordY >= 0)));
+    }
+
+
     public Position sumPosition(int x, int y) {
         return new Position(this.coordX + x, this.coordY + y);
     }

@@ -6,21 +6,21 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class ChessBoardModel {
-    private final ArrayList<ChessSquareModel> squareList = new ArrayList<>();
-    private final static int numberOfRows = 8;
+    private final ChessSquareModel[][] squareList = new ChessSquareModel[numberOfRows][numberOfRows];
+    public final static int numberOfRows = 8;
     private ChessSquareModel positionOfWhiteKing;
     private ChessSquareModel positionOfBlackKing;
 
     public ChessBoardModel() {
         for (int row = 0; row < numberOfRows; row++) {
             for (int column = 0; column < numberOfRows; column++) {
-                squareList.add(new ChessSquareModel(row, column));
+                squareList[row][column] = new ChessSquareModel(row, column);
             }
         }
     }
 
     public ChessSquareModel getSquareModel(Position position) {
-        return squareList.get(position.getCoordX() * numberOfRows + position.getCoordY());
+        return squareList[position.getCoordX()][position.getCoordY()];
     }
 
 
@@ -55,5 +55,8 @@ public class ChessBoardModel {
             return getPositionOfBlackKing();
         }
     }
+
+    // Probably going to need a method to initialise the pieces of the board. Unless we have that be done by the
+    // controller or some other class.
 
 }
