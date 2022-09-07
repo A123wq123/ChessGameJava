@@ -12,14 +12,12 @@ import java.nio.charset.Charset;
 public class ChessSquareUI extends JLabel implements MouseListener {
 
     Position position;
-    //char coordinateX;
-    //int coordinateY;
     String pieceName;
 
     public ChessSquareUI(int row, int column) {
         // This line takes the int and associates it with the corresponding char character from the ascii table.
         // We want to have a1 be at the bottom left.
-        position = new Position(column + 97, 8 - row);
+        position = new Position(column, row);
         //pieceName = String.valueOf("\u2654");
         pieceName = " ";
         //String noName = "\u2654";
@@ -27,11 +25,10 @@ public class ChessSquareUI extends JLabel implements MouseListener {
         // Now the goal is to turn this into a label.
         // We first start by giving the square a color.
         if ((position.sumCoordinates())%2 == 0) {
-            this.setBackground(Color.LIGHT_GRAY);
-
+            this.setBackground(Color.WHITE);
         }
         else {
-            this.setBackground(Color.WHITE);
+            this.setBackground(Color.LIGHT_GRAY);
         }
 
         this.setOpaque(true);
