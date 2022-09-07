@@ -11,22 +11,22 @@ import java.nio.charset.Charset;
 
 public class ChessSquareUI extends JLabel implements MouseListener {
 
-    char coordinateX;
-    int coordinateY;
+    Position position;
+    //char coordinateX;
+    //int coordinateY;
     String pieceName;
 
     public ChessSquareUI(int row, int column) {
         // This line takes the int and associates it with the corresponding char character from the ascii table.
         // We want to have a1 be at the bottom left.
-        coordinateX = (char) (column + 97);
-        coordinateY = 8 - row;
+        position = new Position(column + 97, 8 - row);
         //pieceName = String.valueOf("\u2654");
         pieceName = " ";
         //String noName = "\u2654";
 
         // Now the goal is to turn this into a label.
         // We first start by giving the square a color.
-        if ((coordinateX + coordinateY)%2 == 0) {
+        if ((position.sumCoordinates())%2 == 0) {
             this.setBackground(Color.LIGHT_GRAY);
 
         }
@@ -56,7 +56,7 @@ public class ChessSquareUI extends JLabel implements MouseListener {
         // Maybe it's possible to make a class only instanciable once, that way we could have a move manager.
         // EX: if move manager not created, create it and add the coords for this square. If created add the coords
         // to the second square. Then check stuff like if the move is possible.
-        System.out.println("Coordinates of square: x = " + coordinateX + " y = " + coordinateY);
+        System.out.println("Coordinates of square: x = " + position.getCoordX() + " y = " + position.getCoordY());
 
     }
 

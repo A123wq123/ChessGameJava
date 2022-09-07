@@ -12,6 +12,8 @@ public class Position {
     public int getCoordX() { return coordX; } // Wondering if we should try to make these const.
     public int getCoordY() { return coordY; }
 
+    public int sumCoordinates() { return coordX + coordY; }
+
     public Position sumPosition(Position position) {
         return new Position(this.coordX + position.getCoordX(), this.coordY + position.getCoordY());
     }
