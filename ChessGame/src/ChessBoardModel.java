@@ -39,16 +39,16 @@ public class ChessBoardModel {
         // Dupe this method to have one take a ChessSquareModel as opposed to coordinate.
     }
 
-    public ArrayList<ChessSquareModel> isSquareUnderAttack(String colorOfAttacker) {
-
-        return null;
+    public boolean isSquareUnderAttack(Colour colourOfAttacker) {
+        // To check if the kind is under attack.
+        return true;
     }
 
     public ChessSquareModel getPositionOfWhiteKing() {return this.positionOfWhiteKing;}
     public ChessSquareModel getPositionOfBlackKing() {return this.positionOfBlackKing;}
 
-    public ChessSquareModel getPositionOfKing(String colorOfKing) {
-        if (Objects.equals(colorOfKing, "WHITE")) {
+    public ChessSquareModel getPositionOfKing(Colour colourOfKing) {
+        if (Objects.equals(colourOfKing, Colour.WHITE)) {
             return getPositionOfWhiteKing();
         }
         else {

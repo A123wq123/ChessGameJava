@@ -2,9 +2,9 @@ import java.util.ArrayList;
 
 public class King extends ChessABSPieceModel {
 
-    public King(ChessBoardModel board, String colorOfPiece) {
+    public King(ChessBoardModel board, Colour colourOfPiece) {
         this.board = board;
-        this.color = colorOfPiece;
+        this.colour = colourOfPiece;
     }
 
     @Override

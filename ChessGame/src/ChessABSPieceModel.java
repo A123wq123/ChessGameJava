@@ -5,16 +5,22 @@
 
 import java.util.ArrayList;
 
+// types of pieces separated by color.
+enum Colour {
+    BLACK, WHITE, NULL
+}
+
 abstract class ChessABSPieceModel {
     protected ChessBoardModel board;
-    protected String color; // There might be interest in making this a boolean.
+    protected Colour colour; // There might be interest in making this a boolean.
     abstract public ArrayList<ChessSquareModel> getListMoves(ChessSquareModel currentPos);
 
     protected boolean checkIfMoveLegal(ChessSquareModel currentPos, ChessSquareModel destSquare) {
         // This method checks if the move is legal but doesn't look for if the king of the player is put in check.
 
         // Check #1, not eating a piece of the same color as us.
-        return !(this.color.equals(destSquare.getPiece().color));
+
+        return !(this.colour.equals(destSquare.getPiece().colour));
     }
     // The above method should not be used outside the Piece itself. This is simply created to be used by getListMoves
     // and is therefore not adapted for outside use.

@@ -5,6 +5,7 @@ public class ChessSquareModel {
 
     public ChessSquareModel(int row, int column) {
         this.position = new Position(row, column);
+        piece = new NullPiece();
     }
 
     public Position getPosition() { return position; }
