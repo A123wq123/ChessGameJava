@@ -1,5 +1,7 @@
 // This will be the class in charge of controlling the game, this includes the player's turn, if the king is in check
-// and moving the pieces. Debating on if this class moves the pieces itself. 
+// and moving the pieces. Debating on if this class moves the pieces itself.
+
+
 
 //planing so i dont get lost -choco
 
@@ -34,7 +36,12 @@
 //4 send to board remouve piece from x square
 //5 send to board add piece to y square
 //6 send to turn checker move has been done
+public class {
+    if(selectedSquare){
 
+        }
+
+}
 
 public class ChessController {
     private ChessBoardModel board;
