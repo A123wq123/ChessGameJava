@@ -9,6 +9,7 @@ public class NullPiece extends ChessABSPieceModel {
 
     @Override
     public ArrayList<ChessSquareModel> getListMoves(ChessSquareModel currentPos) {
+        // depending on how the code responds to the value being NULL, we might need to simply return an empty ArrayList
         return null;
     }
 }
