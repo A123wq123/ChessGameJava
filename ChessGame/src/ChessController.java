@@ -57,25 +57,39 @@ public class ChessController
         // options.
     }
 
-//---section possible move---//
+
+                                        //---section possible move---//
+
+    public ArrayList<ChessSquareModel> LegalMove(Position position,)
+    {//1 making sure the code still work/not change much existing code
 
 
-
-//3 controler ask the spot if it has a piece if not cancel operation if yes go to next step
-//4 controler ask the piece what are is legal move
-//4* (getting the direction and the num of square)**make sure to deny the loop by asking position
-//5 controler need to check what are the legal move whitin the list of possible move
-//5-1 checking if other piece are in the way -----(supposed to be in pieces side)
-//5-2 check special case (ex. promotion, rock,prim, 50 cout, ...)
-//6 checking if it put king in check(king getting atk)
-//6-1 checking if king already atk then aloying move than block the check
-//8(not obligated) send to the highliter which square are possible
-
-    public ArrayList<ChessSquareModel> LegalMove(Position position,) {//1 making sure the code still work/not change much existing code
+        // controler ask the spot whitch piece it have (null, white or blanck)
         ChessABSPieceModel piecex = board.getSquareModel(position).getPiece();
-        if (piecex =/*color of player*/)
+
+
+        //checking if it is the color of the player than enter equation
+        //if its a null piece or not the color of the in the selection do nothing
+        if (/*player color*/ = !this.colour.equals(destSquare.getPiece(piecex).colour)
         {
-            !(this.colour.equals(destSquare.getPiece().colour))
+            // controler ask the piece what are is legal move
+            //*make sure to deny the loop by asking position (should be in the piece part)
+            //controler need to check what are the legal move whitin the list of possible move(should be in the piece part)
+            //**checking if other piece are in the way -----(supposed to be in pieces side)
+            ArrayList<ChessSquareModel> listOfMovesT = piecex.getListMoves( board.getSquareModel(position));
+
+            //(need to add this but not now and idk how to do it to add later)
+            // check special case (ex. promotion, rock,prim, 50 cout, ...)
+
+
+            //(need to add this but not now and idk how to do it to add later)
+            // checking if it put king in check(king getting atk)
+            //** checking if king already atk then aloying move than block the check
+
+
+            //(not obligated) send to the highliter which square are possible
+            (/* function that highlite*/)(listOfMovesT)
+                //prob gone be listOfMovesT add img redCircle something around those line
         }
 
 
