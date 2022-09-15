@@ -15,32 +15,11 @@
 //4 when player lose right disable timer
 
 
-//---section possible move---//
-
-//1 making sure the code still work/not change much existing code
-//2 controler is call wen we click on a piece(info sent by mouse listener)
-//3 controler ask the spot if it has a piece if not cancel operation if yes go to next step
-//4 controler ask the piece what are is legal move
-//4* (getting the direction and the num of square)**make sure to deny the loop by asking position
-//5 controler need to check what are the legal move whitin the list of possible move
-//5-1 checking if other piece are in the way -----(supposed to be in pieces side)
-//5-2 check special case (ex. promotion, rock,prim, 50 cout, ...)
-//6 checking if it put king in check(king getting atk)
-//6-1 checking if king already atk then aloying move than block the check
-//8(not obligated) send to the highliter which square are possible
-
-//---section moving---//
-
-//1 check if a pice is selected
-//2 via mouse listender get info whitch square got click then store it
-//3 check if it was one of the move that was possible(if no clear the memory who store which square if yes next step)
-//4 send to board remouve piece from x square
-//5 send to board add piece to y square
-//6 send to turn checker move has been done
-
 //---start of turn---//
 
 // check if ur in check
+//check were the king
+
 
 
 import java.util.ArrayList;
@@ -56,6 +35,11 @@ public class ChessController
         // Input here the board game mode? Or maybe add a function down the line that can do this but with more
         // options.
     }
+
+
+
+
+
 
 
                                         //---section possible move---//
@@ -90,8 +74,43 @@ public class ChessController
             //(not obligated) send to the highliter which square are possible
             (/* function that highlite*/)(listOfMovesT)
                 //prob gone be listOfMovesT add img redCircle something around those line
+
+
+
+
+
+            //---section moving---//
+
+
+            //i think im missing the way to get the second square
+            public ArrayList<ChessSquareModel> MovePiece(Position position2,)
+            {//2 via mouse listender get info whitch square got click then store it(supossed to be done higher up)
+
+            //3 check if it was one of the move that was possible
+            // (if no clear the memory who store which square if yes next step)
+                if (position2 != position && position2 == listOfMovesT)
+                {
+                    // controler ask the spot whitch piece it have (null, white or blanck)
+                    ChessABSPieceModel piecex = board.getSquareModel(position).getPiece();
+
+                    if(/*color*/= !this.colour.equals(destSquare.getPiece(piecex).colour)
+                    {
+                        //4 send to board remouve piece from x square
+                        //5 send to board add piece to y square
+                        //6 send to turn checker move has been done
+
+                    }
+
+                }
+            }
         }
 
 
     }
+
+
+
+
+
+
 }
