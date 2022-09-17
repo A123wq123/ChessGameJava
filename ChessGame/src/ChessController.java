@@ -21,6 +21,7 @@
 //---inner info idk were they are---//
 
 //know the position of the king constantly and change when ever he is move
+//*ask the board the king position
 
 
 
@@ -28,14 +29,17 @@
 //---the code and variable---//
 import java.util.ArrayList;
 
+
 public class ChessController
 {
 
+    private Colour currentPlayer;
     private ChessBoardModel board;
 
 //---type of game---//
     public ChessController() {
         board = new ChessBoardModel();
+        currentPlayer = Colour.WHITE;
         // Input here the board game mode? Or maybe add a function down the line that can do this but with more
         // options.
     }
@@ -49,38 +53,39 @@ public class ChessController
     //?? still not sure how prob gone me whit a switch case for turn and via mouse listender check
     //?? witch player click and verify if its his turn
     //(maybe gonna create a posibility to overload system whit info)
-    //*switch case for state (white /black)
+    //*switch case for state (white /black)and enum class
 
-                                    //---timer section---//
+                                    //---timer section(ui side)---//
     //1 when right is given anable timer for the player in question
-    //*all this prob via switch case
+    //*all this prob via switch case of the player
     //2 when player lose right disable timer
     //??idk how to do a timer and even less how to put it in the ui
+    //*It's basically only on the UI side, some of the model reacts to it but most of it is in UI.
 
 
 
 
                                     //---section possible move---//
 
-    public ArrayList<ChessSquareModel> LegalMove(Position position,)
-    {// making sure the code still work/not change much existing code
+    public ArrayList<ChessSquareModel> LegalMove(Position positionClicked)
+    {// making sure the code still work/not change much of the existing code
 
 
-        //-controler ask the spot whitch piece it have (null, white or blanck)
-        ChessABSPieceModel piecex = board.getSquareModel(position).getPiece();
+        //-controler ask the spot whitch piece it has (null, white or blanck)
+        ChessABSPieceModel piecex = board.getSquareModel(positionClicked).getPiece();
 
 
-        //-checking if it is the color of the player than enter equation
-        //-if its a null piece or not the color of the in the selection do nothing
-        if (/*player color*/ = !this.colour.equals(destSquare.getPiece(piecex).colour)
+        //-checking if it is the color of the player who's turn it is, then enter equation
+        //-if its a null piece or not the color do nothing or stop the move.
+        if (CheckColour(piecex))
         {
             //-controler ask the piece what are is legal move
-            //*make sure to deny the loop by asking position (should be in the piece part)
             //**controler need to check what are the legal move whitin the list of possible move
-            //***checking if other piece are in the way -----(supposed to be in pieces side)
-            ArrayList<ChessSquareModel> listOfMovesT = piecex.getListMoves( board.getSquareModel(position));
+            ArrayList<ChessSquareModel> listOfMovesT = piecex.getListMoves( board.getSquareModel(positionClicked));
 
-            /* function that check special case*/
+            /*function that check if king in check*/
+
+            /* function that check special case and add them to list*/
 
             //?? idk if i put the part that check if the move put our own king in check here or in the move piece section
 
@@ -95,6 +100,64 @@ public class ChessController
 
         }
     }
+                                      //---section Obtain colour of player--//
+    /**
+     * Get attribute currentPlayer from chess controler
+     * @return Colour
+     */
+    private Colour getCurrentPlayer() { return currentPlayer; }
+
+                                      //---section check colour player--//
+
+    /**
+     * Checks if the color of the piece is the same as the player who's playing
+     * @return bool (y/n)
+     */
+    private boolean CheckColour (ChessABSPieceModel piece)
+    {
+        if (getCurrentPlayer() == piece.colour){
+
+            return true;
+        }
+        return false;
+    }
+
+
+                    //---section temp move to check if ok---//
+
+    //-create the move temporairly
+    //starting square=a squareToGo=b  and create tempoarySquare=c(order important)
+    //whit this put b in c and a in b and add a nullPiece in a
+    //this allow us to make a tempoary move so its possible to undo the move fonction to make later
+    //and allow to check if the king of the player that just move a piece is now in check and undo the move
+    //??but for this i wonder if its better of to create variable where i store the info of the piece
+    //??or if i create a square that dont have position(so it cant be interact by the player)
+    //?? and use that square for every move
+
+    /**
+     * This method needs to check if a move is legal
+     * @return bool (y/n)
+     */
+
+    private boolean CheckIfMoveLegal (Position currentPosition, Position destination)
+    {
+        // create c , c <-> b, a <-> c
+        ChessSquareModel tempSquare = new ChessSquareModel(currentPosition.getCoordX(),currentPosition.getCoordY());
+        return false;
+    }
+
+
+                                    //---section check if King is in check--//
+    /**
+     * Verifies if the king of the specified color is in check.
+     * @return bool (y/n)
+     */
+
+    private boolean CheckKingCheck (Colour player)
+    {
+        return false;
+    }
+
 
                                          //---section moving---//
 
@@ -110,14 +173,7 @@ public class ChessController
             //-controler ask the spot whitch piece it have (null, white or blanck)
             ChessABSPieceModel piecex = board.getSquareModel(position).getPiece();
 
-            //-create the move temporairly
-            //starting square=a squareToGo=b  and create tempoarySquare=c(order important)
-            //whit this put b in c and a in b and add a nullPiece in a
-            //this allow us to make a tempoary move so its possible to undo the move fonction to make later
-            //and allow to check if the king of the player that just move a piece is now in check and undo the move
-            //??but for this i wonder if its better of to create variable where i store the info of the piece
-            //??or if i create a square that dont have position(so it cant be interact by the player)
-            //?? and use that square for every move
+
 
 
             //-send to turn checker move has been done
