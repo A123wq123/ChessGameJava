@@ -15,6 +15,7 @@ abstract class ChessABSPieceModel {
     protected Colour colour; // There might be interest in making this a boolean.
     abstract public ArrayList<ChessSquareModel> getListMoves(ChessSquareModel currentPos);
 
+
     protected boolean checkIfMoveLegal(ChessSquareModel currentPos, ChessSquareModel destSquare) {
         // This method checks if the move is legal but doesn't look for if the king of the player is put in check.
 
@@ -22,6 +23,7 @@ abstract class ChessABSPieceModel {
 
         return !(this.colour.equals(destSquare.getPiece().colour));
     }
+
     // The above method should not be used outside the Piece itself. This is simply created to be used by getListMoves
     // and is therefore not adapted for outside use.
 }

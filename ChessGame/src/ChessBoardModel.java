@@ -63,7 +63,7 @@ public class ChessBoardModel {
         // 1) Find square associated with coords of Destination
         // 2) Change that square with the square we take in parameters.
         squareList[positionDestiantion.getCoordX()][positionDestiantion.getCoordY()] = square;
-        
+
     }
 
     // Probably going to need a method to initialise the pieces of the board. Unless we have that be done by the

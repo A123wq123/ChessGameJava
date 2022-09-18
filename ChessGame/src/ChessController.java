@@ -143,6 +143,28 @@ public class ChessController
     {
         // create c , c <-> b, a <-> c
         ChessSquareModel tempSquare = new ChessSquareModel(currentPosition.getCoordX(),currentPosition.getCoordY());
+        ChessSquareModel bTemp = board.getSquareModel(destination);
+
+        // c -> b
+        board.ChangeSquare(tempSquare, destination);
+
+        // a -> c
+        board.ChangeSquare(board.getSquareModel(currentPosition), destination);
+        board.getSquareModel(destination).ChangePosition(destination);
+
+        // c -> a
+        board.ChangeSquare(tempSquare, currentPosition);
+
+        // Check if the move is legal (puts the king in check or no, also special rules)
+
+        // Regardless of if the move is legal or no, you need to reverse it.
+
+        //a -> c
+        board.ChangeSquare(board.getSquareModel(destination), currentPosition);
+
+        //btemp -> b
+        board.ChangeSquare(bTemp,destination);
+
 
 
         return false;

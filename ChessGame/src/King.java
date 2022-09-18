@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class King extends ChessABSPieceModel {
 
     public King(ChessBoardModel board, Colour colourOfPiece) {
+        super();
         this.board = board;
         this.colour = colourOfPiece;
     }
@@ -25,4 +26,5 @@ public class King extends ChessABSPieceModel {
 
         return listOfMoves;
     }
+
 }

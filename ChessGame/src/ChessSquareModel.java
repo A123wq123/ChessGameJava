@@ -25,4 +25,5 @@ public class ChessSquareModel {
     public void ChangePosition(Position newPosition) {
         position = newPosition;
     }
+
 }
