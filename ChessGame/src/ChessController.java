@@ -143,6 +143,8 @@ public class ChessController
     {
         // create c , c <-> b, a <-> c
         ChessSquareModel tempSquare = new ChessSquareModel(currentPosition.getCoordX(),currentPosition.getCoordY());
+
+
         return false;
     }
 

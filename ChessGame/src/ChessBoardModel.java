@@ -2,7 +2,6 @@
 
 // ChessSquareModel has yet to be created.
 
-import java.util.ArrayList;
 import java.util.Objects;
 
 public class ChessBoardModel {
@@ -54,6 +53,17 @@ public class ChessBoardModel {
         else {
             return getPositionOfBlackKing();
         }
+    }
+
+    /**
+     * This method needs to change a square with another square by intaking both positions.
+     * @return void
+     */
+    public void ChangeSquare(ChessSquareModel square, Position positionDestiantion){
+        // 1) Find square associated with coords of Destination
+        // 2) Change that square with the square we take in parameters.
+        squareList[positionDestiantion.getCoordX()][positionDestiantion.getCoordY()] = square;
+        
     }
 
     // Probably going to need a method to initialise the pieces of the board. Unless we have that be done by the
