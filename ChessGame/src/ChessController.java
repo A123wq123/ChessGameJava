@@ -58,7 +58,7 @@ public class ChessController
                                     //---timer section(ui side)---//
     //1 when right is given anable timer for the player in question
     //*all this prob via switch case of the player
-    //2 when player lose right disable timer
+    //2 when player lose right disable timercd
     //??idk how to do a timer and even less how to put it in the ui
     //*It's basically only on the UI side, some of the model reacts to it but most of it is in UI.
 
@@ -80,9 +80,9 @@ public class ChessController
         if (CheckColour(piecex))
         {
             //-controler ask the piece what are is legal move
-            //**controler need to check what are the legal move whitin the list of possible move
             ArrayList<ChessSquareModel> listOfMovesT = piecex.getListMoves( board.getSquareModel(positionClicked));
 
+            //**controler need to check what are the legal move whitin the list of possible move
             /*function that check if king in check*/
 
             /* function that check special case and add them to list*/
@@ -124,24 +124,18 @@ public class ChessController
 
 
                     //---section temp move to check if ok---//
-
-    //-create the move temporairly
-    //starting square=a squareToGo=b  and create tempoarySquare=c(order important)
-    //whit this put b in c and a in b and add a nullPiece in a
-    //this allow us to make a tempoary move so its possible to undo the move fonction to make later
-    //and allow to check if the king of the player that just move a piece is now in check and undo the move
-    //??but for this i wonder if its better of to create variable where i store the info of the piece
-    //??or if i create a square that dont have position(so it cant be interact by the player)
-    //?? and use that square for every move
-
     /**
      * This method needs to check if a move is legal
      * @return bool (y/n)
      */
-
     private boolean CheckIfMoveLegal (Position currentPosition, Position destination)
     {
-        // create c , c <-> b, a <-> c
+        //-create the move temporairly
+        //a=positionInitial
+        //b=positionToGo
+        //c=tempSquare
+
+        // create c ,
         ChessSquareModel tempSquare = new ChessSquareModel(currentPosition.getCoordX(),currentPosition.getCoordY());
         ChessSquareModel bTemp = board.getSquareModel(destination);
 
@@ -154,8 +148,19 @@ public class ChessController
 
         // c -> a
         board.ChangeSquare(tempSquare, currentPosition);
+        //this allow us to make a tempoary move so its possible to undo the move
 
         // Check if the move is legal (puts the king in check or no, also special rules)
+        //* i think the white/black need more specification
+        //i wonder if this should be a function
+        ChessABSPieceModel pieceC = board.getSquareModel(currentPosition).getPiece();
+        colour pieceColour = pieceC.colour;
+        if (pieceColour= black) {
+            boolean verifiIfKIngCheck = CheckKingCheck(white);
+        } else if (pieceColour=white) {
+            boolean verifiIfKIngCheck = CheckKingCheck(black);
+        }
+
 
         // Regardless of if the move is legal or no, you need to reverse it.
 
@@ -166,8 +171,7 @@ public class ChessController
         board.ChangeSquare(bTemp,destination);
 
 
-
-        return false;
+        return verifiIfKIngCheck;
     }
 
 
@@ -176,10 +180,13 @@ public class ChessController
      * Verifies if the king of the specified color is in check.
      * @return bool (y/n)
      */
-
-    private boolean CheckKingCheck (Colour player)
+    private boolean CheckKingCheck (Colour oposingPlayer)
     {
-        return false;
+        //i think that function that is in boardmodel should need the square that we checking but idk
+        // if its only use for the king i dont think i need this function
+        boolean isKingCheck = board.isSquareUnderAttack(oposingPlayer);
+
+        return isKingCheck;
     }
 
 
