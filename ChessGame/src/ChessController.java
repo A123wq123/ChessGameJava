@@ -82,21 +82,23 @@ public class ChessController
             //-controler ask the piece what are is legal move
             ArrayList<ChessSquareModel> listOfMovesT = piecex.getListMoves( board.getSquareModel(positionClicked));
 
-            //**controler need to check what are the legal move whitin the list of possible move
-            /*function that check if king in check*/
+            //*controler need to check what are the legal move whitin the list of possible move
+            //*(i dont think theres other than checking if it put the king in check cause most is made in the piece part)
+
+
+            //-function that check if the move we do either put our king in check or not block the current check
+            CheckIfMoveLegal(positionClicked,/*something that say were the pice selected can go */);
+            //??i think this should be in a loop so it verifi every case the piece can do and
+            //??if yes remove from the list that we sent to the highlight
+
 
             /* function that check special case and add them to list*/
 
-            //?? idk if i put the part that check if the move put our own king in check here or in the move piece section
 
             //-send to the highliter which square are possible
             (/* function that highlite*/)(listOfMovesT)
                 //prob gone be listOfMovesT add img redCircle something around those line
 
-
-
-                //-appel de la fonction moving pour deplacer la piece apres(in progress)
-                MovePiece(Position position2,)
 
         }
     }
@@ -154,7 +156,7 @@ public class ChessController
         //* i think the white/black need more specification
         //i wonder if this should be a function
         ChessABSPieceModel pieceC = board.getSquareModel(currentPosition).getPiece();
-        colour pieceColour = pieceC.colour;
+        Colour pieceColour = pieceC.colour;
         if (pieceColour= black) {
             boolean verifiIfKIngCheck = CheckKingCheck(white);
         } else if (pieceColour=white) {
