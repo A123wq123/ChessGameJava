@@ -5,11 +5,6 @@ package Logic;// This is an abstract class, the goal here is to provide a common
 
 import java.util.ArrayList;
 
-// types of pieces separated by color.
-public enum Colour {
-    BLACK, WHITE, NULL
-}
-
 public abstract class ChessABSPieceModel {
     protected ChessBoardModel board;
     protected Colour colour; // There might be interest in making this a boolean.
