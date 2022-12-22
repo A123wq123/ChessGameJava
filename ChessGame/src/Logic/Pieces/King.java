@@ -1,3 +1,11 @@
+package Logic.Pieces;
+
+import Logic.ChessABSPieceModel;
+import Logic.ChessBoardModel;
+import Logic.ChessSquareModel;
+import Logic.Colour;
+import Utility.Position;
+
 import java.util.ArrayList;
 
 public class King extends ChessABSPieceModel {

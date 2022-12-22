@@ -1,3 +1,8 @@
+package Logic;
+
+import Logic.Pieces.NullPiece;
+import Utility.Position;
+
 public class ChessSquareModel {
 
     private ChessABSPieceModel piece;

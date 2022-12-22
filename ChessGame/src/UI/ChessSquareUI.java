@@ -1,5 +1,7 @@
-// This is the file containing the code for the UI part of a square on the board.
+package UI;// This is the file containing the code for the UI part of a square on the board.
 
+
+import Utility.Position;
 
 import javax.swing.*;
 import java.awt.*;

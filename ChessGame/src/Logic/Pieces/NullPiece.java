@@ -1,3 +1,9 @@
+package Logic.Pieces;
+
+import Logic.ChessABSPieceModel;
+import Logic.ChessSquareModel;
+import Logic.Colour;
+
 import java.util.ArrayList;
 
 public class NullPiece extends ChessABSPieceModel {

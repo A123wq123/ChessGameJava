@@ -1,6 +1,8 @@
-// The goal of this class is to be the model, the behind the scenes, of the board.
+package Logic;// The goal of this class is to be the model, the behind the scenes, of the board.
 
-// ChessSquareModel has yet to be created.
+// Logic.ChessSquareModel has yet to be created.
+
+import Utility.Position;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -26,7 +28,7 @@ public class ChessBoardModel {
 
     public void addPieceToSquare(Position position, ChessABSPieceModel piece) {
         // Once the piece class has been created, add it here in order to add a piece to a specific square.
-        // Also dupe this method but have one take in a ChessSquareModel instead of coordinates.
+        // Also dupe this method but have one take in a Logic.ChessSquareModel instead of coordinates.
         getSquareModel(position).addPiece(piece);
     }
 
@@ -36,7 +38,7 @@ public class ChessBoardModel {
 
     public void removePieceFromSquare(int row, int column) {
         // Once the piece class has been created, finish implementing this function.
-        // Dupe this method to have one take a ChessSquareModel as opposed to coordinate.
+        // Dupe this method to have one take a Logic.ChessSquareModel as opposed to coordinate.
     }
 
     public boolean isSquareUnderAttack(Colour colourOfAttacker) {

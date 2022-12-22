@@ -1,5 +1,7 @@
-// This file is the code for the UI part of a chess board, this does NOT include the squares, they have their own
+package UI;// This file is the code for the UI part of a chess board, this does NOT include the squares, they have their own
 // class for this purpose.
+
+import UI.ChessSquareUI;
 
 import javax.swing.*;
 import java.awt.*;
@@ -34,7 +36,7 @@ public class ChessBoardUI {
     }
 
     // This will add the squares to the JFrame
-    // Going to remove the row and column of ChessSquareUI as it doesn't have its place in UI, leaving for testing
+    // Going to remove the row and column of UI.ChessSquareUI as it doesn't have its place in UI, leaving for testing
     // purposes.
     private void addSquaresUI() {
         for (int row = 0; row < numberOfRows; row++) {

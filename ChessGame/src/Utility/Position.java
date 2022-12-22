@@ -1,4 +1,6 @@
-// This class has the goal to essentially contain coordinates and perform actions on them.
+package Utility;// This class has the goal to essentially contain coordinates and perform actions on them.
+
+import Logic.ChessBoardModel;
 
 public class Position {
     private final int coordX;

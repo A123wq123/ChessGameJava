@@ -1,4 +1,4 @@
-// This will be the class in charge of controlling the game, this includes the player's turn, if the king is in check
+package Controller;// This will be the class in charge of controlling the game, this includes the player's turn, if the king is in check
 // and moving the pieces. Debating on if this class moves the pieces itself. 
 
 //planing so i dont get lost -choco
@@ -35,6 +35,8 @@
 //5 send to board add piece to y square
 //6 send to turn checker move has been done
 
+
+import Logic.ChessBoardModel;
 
 public class ChessController {
     private ChessBoardModel board;

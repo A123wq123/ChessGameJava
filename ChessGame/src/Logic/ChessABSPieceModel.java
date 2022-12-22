@@ -1,4 +1,4 @@
-// This is an abstract class, the goal here is to provide a common ground for all the pieces.
+package Logic;// This is an abstract class, the goal here is to provide a common ground for all the pieces.
 // The idea here is that the piece knows everything about itself, but nothing about the state of the board.
 // So the piece knows all the possible moves it can do, whether legal or not and knows how to determine if a move
 // is legal. It does not know if a move is legal.
@@ -6,11 +6,11 @@
 import java.util.ArrayList;
 
 // types of pieces separated by color.
-enum Colour {
+public enum Colour {
     BLACK, WHITE, NULL
 }
 
-abstract class ChessABSPieceModel {
+public abstract class ChessABSPieceModel {
     protected ChessBoardModel board;
     protected Colour colour; // There might be interest in making this a boolean.
     abstract public ArrayList<ChessSquareModel> getListMoves(ChessSquareModel currentPos);
