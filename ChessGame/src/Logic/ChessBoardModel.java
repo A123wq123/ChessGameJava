@@ -16,13 +16,13 @@ public class ChessBoardModel {
     public ChessBoardModel() {
         for (int row = 0; row < numberOfRows; row++) {
             for (int column = 0; column < numberOfRows; column++) {
-                squareList[row][column] = new ChessSquareModel(row, column);
+                squareList[row][column] = new ChessSquareModel(column, row);
             }
         }
     }
 
     public ChessSquareModel getSquareModel(Position position) {
-        return squareList[position.getCoordX()][position.getCoordY()];
+        return squareList[position.getCoordY()][position.getCoordX()];
     }
 
 
@@ -36,7 +36,7 @@ public class ChessBoardModel {
         square.addPiece(piece);
     }
 
-    public void removePieceFromSquare(int row, int column) {
+    public void removePieceFromSquare(int column, int row) {
         // Once the piece class has been created, finish implementing this function.
         // Dupe this method to have one take a Logic.ChessSquareModel as opposed to coordinate.
     }
