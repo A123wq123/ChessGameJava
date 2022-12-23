@@ -1,5 +1,6 @@
 package Logic;
 
+import Logic.Pieces.ChessABSPieceModel;
 import Logic.Pieces.NullPiece;
 import Utility.Position;
 

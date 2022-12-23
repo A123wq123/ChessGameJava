@@ -2,9 +2,9 @@ package Logic;// The goal of this class is to be the model, the behind the scene
 
 // Logic.ChessSquareModel has yet to be created.
 
+import Logic.Pieces.ChessABSPieceModel;
 import Utility.Position;
 
-import java.util.ArrayList;
 import java.util.Objects;
 
 public class ChessBoardModel {

@@ -7,9 +7,16 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
+/**
+ * Class representing the chess board on the User Interface side of this project.
+ * This class is capable of loading a chess game with the basic pieces in place
+ * as well as add a new square of piece if such is desired.
+ * @Author Charles Degrandpré
+ * @Last_Updated 2022-12-22
+ */
 public class ChessBoardUI {
 
-    // The canvas on which we will work to implement the UI.
+    // The canvas on which we will work with to implement the UI.
     JFrame frame;
     private static final int numberOfRows = 8;
     private final ArrayList<ChessSquareUI> list = new ArrayList<ChessSquareUI>();

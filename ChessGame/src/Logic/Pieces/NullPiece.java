@@ -1,6 +1,5 @@
 package Logic.Pieces;
 
-import Logic.ChessABSPieceModel;
 import Logic.ChessSquareModel;
 import Logic.Colour;
 
