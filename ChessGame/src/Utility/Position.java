@@ -1,4 +1,4 @@
-package Utility;// This class has the goal to essentially contain coordinates and perform actions on them.
+package Utility;
 
 import Logic.ChessBoardModel;
 
