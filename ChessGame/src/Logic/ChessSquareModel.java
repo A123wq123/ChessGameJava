@@ -6,7 +6,7 @@ import Utility.Position;
 
 /**
  * Class representing a chess square on the logic side of this project. This class is in charge of
- * manage the piece it possesses weather that piece is a nullPiece or a concrete piece. This class
+ * managing the piece it possesses weather that piece is a nullPiece or a concrete piece. This class
  * can obtain its position, obtain its piece, remove its piece and acts as a middle man between
  * the chess board and the pieces.
  * @Author Charles Degrandpré
