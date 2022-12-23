@@ -1,7 +1,4 @@
-package UI;// This file is the code for the UI part of a chess board, this does NOT include the squares, they have their own
-// class for this purpose.
-
-import UI.ChessSquareUI;
+package UI;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,104 +9,117 @@ import java.util.ArrayList;
  * This class is capable of loading a chess game with the basic pieces in place
  * as well as add a new square of piece if such is desired.
  * @Author Charles Degrandpré
- * @Last_Updated 2022-12-22
+ * @Last_Updated 2022-12-23
  */
 public class ChessBoardUI {
 
-    // The canvas on which we will work with to implement the UI.
-    JFrame frame;
+    private final JFrame frame;
     private static final int numberOfRows = 8;
-    private final ArrayList<ChessSquareUI> list = new ArrayList<ChessSquareUI>();
+    private final ArrayList<ChessSquareUI> list = new ArrayList<>();
 
+    /**
+     * Constructor for the ChessBoardUI class. Initiates all attributes of the class
+     * and initiates base values in terms of size and titles for the board.
+     * This constructor adds all the squares and pieces to the UI. The pieces are
+     * identified with the unicode strings from the chess pieces icons and not
+     * images.
+     */
     public ChessBoardUI() {
         frame = new JFrame(); // Create the JFrame.
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(450, 450);
         frame.setTitle("ChessGame");
 
-        // This makes it so the JFrame now obeys under the GridLayout Format (gives us a grid).
         frame.setLayout(new GridLayout(8, 8));
 
-        // This will add the squares to the JFrame
         this.addSquaresUI();
         this.addPieces();
 
-        frame.setVisible(true); // Without this line the frame is not visible
-
-        // The following two lines are to add a picture as the APP logo while running the code.
-        // ImageIcon ChessAppImage = new ImageIcon("AppImage.png");
-        // frame.setIconImage(ChessAppImage.getImage());
-
+        frame.setVisible(true);
     }
 
-    // This will add the squares to the JFrame
-    // Going to remove the row and column of UI.ChessSquareUI as it doesn't have its place in UI, leaving for testing
-    // purposes.
+    /**
+     * This private class method creates and all necessary squares to
+     * initiate a ChessBoardUI matching the numberOfRows attribute.
+     */
     private void addSquaresUI() {
         for (int row = 0; row < numberOfRows; row++) {
             for (int column = 0; column < numberOfRows; column++) {
-                ChessSquareUI square = new ChessSquareUI(row, column);
+                ChessSquareUI square = new ChessSquareUI(column, row);
                 frame.add(square);
                 list.add(square);
             }
         }
     }
 
-    // the goal of this function will be to add the pieces to the UI. Issue is, I'm wondering if we add from here,
-    // or if we should have the method (background code) be the one who decides where the pieces are.
-    // EX: we check the method and if it says Tower then add tower on the square we are looking at.
+    /**
+     * Adds all pieces to the instance of the ChessBoardUI.
+     */
     private void addPieces() {
         addWhitePieces();
         addBlackPieces();
     }
 
+    /**
+     * Adds all whites pieces by changing the name of the squares
+     * to that of the unicode character that represents the correct piece.
+     */
     private void addWhitePieces() {
         // Add Pawns
         for (int i = 0; i < numberOfRows; i++) {
-            getSquareUI(6, i).setText(String.valueOf("\u2659"));
+            getSquareUI(6, i).setText("\u2659");
         }
         // Add towers
         for (int i  = 0; i < 2; i++) {
-            getSquareUI(7, i*7).setText(String.valueOf("\u2656"));
+            getSquareUI(7, i*7).setText("\u2656");
         }
         // Add knights
         for (int i  = 0; i < 2; i++) {
-            getSquareUI(7, 1+i*5).setText(String.valueOf("\u2658"));
+            getSquareUI(7, 1+i*5).setText("\u2658");
         }
         // Add bishops
         for (int i  = 0; i < 2; i++) {
-            getSquareUI(7, 2+i*3).setText(String.valueOf("\u2657"));
+            getSquareUI(7, 2+i*3).setText("\u2657");
         }
         // Add queen
-        getSquareUI(7,3).setText(String.valueOf("\u2655"));
+        getSquareUI(7,3).setText("\u2655");
         // Add king
-        getSquareUI(7,4).setText(String.valueOf("\u2654"));
+        getSquareUI(7,4).setText("\u2654");
     }
 
+    /**
+     * Adds all black pieces by changing the name of the squares
+     * to that of the unicode character that represents the correct piece.
+     */
     private void addBlackPieces() {
         // Add Pawns
         for (int i = 0; i < numberOfRows; i++) {
-            getSquareUI(1, i).setText(String.valueOf("\u265F"));
+            getSquareUI(1, i).setText("\u265F");
         }
         // Add towers
         for (int i  = 0; i < 2; i++) {
-            getSquareUI(0, i*7).setText(String.valueOf("\u265C"));
+            getSquareUI(0, i*7).setText("\u265C");
         }
         // Add knights
         for (int i  = 0; i < 2; i++) {
-            getSquareUI(0, 1+i*5).setText(String.valueOf("\u265E"));
+            getSquareUI(0, 1+i*5).setText("\u265E");
         }
         // Add bishops
         for (int i  = 0; i < 2; i++) {
-            getSquareUI(0, 2+i*3).setText(String.valueOf("\u265D"));
+            getSquareUI(0, 2+i*3).setText("\u265D");
         }
         // Add queen
-        getSquareUI(0,3).setText(String.valueOf("\u265B"));
+        getSquareUI(0,3).setText("\u265B");
         // Add king
-        getSquareUI(0,4).setText(String.valueOf("\u265A"));
+        getSquareUI(0,4).setText("\u265A");
     }
 
-    // Gets us the square from the grid.
+    /**
+     * Returns a square from the ChessBoardUI instance by its given coordinates.
+     * @param row the row of the square, also its y coordinate.
+     * @param column the column of the square, also its x coordinate.
+     * @return the square associated with the given coordinates.
+     */
     private ChessSquareUI getSquareUI(int row, int column) {
         int index = numberOfRows * row + column;
         return list.get(index);
