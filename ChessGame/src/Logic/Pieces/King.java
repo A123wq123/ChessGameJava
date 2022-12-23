@@ -27,10 +27,10 @@ public class King extends ChessABSPieceModel {
 
     /**
      * Returns all the possibles moves the king can make by receiving its square
-     * as a parameter. This method does not check if a move is legal, it simply checks
-     * if the move is with the capabilities of the king.
-     * @param currentSquare
-     * @return an array of the possible squares the king can get to. 
+     * as a parameter. This method can check if a move is legal (does not cross a piece
+     * etc.) but cannot check if the king is in check after the move.
+     * @param currentSquare the square where the pice is positionned.
+     * @return an array of the possible squares the king can get to.
      */
     @Override
     public ArrayList<ChessSquareModel> getListMoves(ChessSquareModel currentSquare) {
