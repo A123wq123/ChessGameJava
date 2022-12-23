@@ -38,6 +38,10 @@ package Controller;// This will be the class in charge of controlling the game, 
 
 import Logic.ChessBoardModel;
 
+/** TODO
+ * Add java doc.
+ * - Charles
+ */
 public class ChessController {
     private ChessBoardModel board;
 
