@@ -1,7 +1,5 @@
-import UI.ChessSquareUI;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-
+import static org.assertj.swing.launcher.ApplicationLauncher.application;
 
 /**
  * Series of automated tests for the ChessSquareUI class.
