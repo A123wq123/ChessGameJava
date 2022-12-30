@@ -41,9 +41,14 @@ public class King extends ChessABSPieceModel {
 
         for (int rowMove : new int[] {-1, 0, 1}) {
             for (int columnMove : new int[] {-1, 0, 1}) {
-                Position destPosition = currentPosition.sumPosition(rowMove, columnMove);
+                Position destPosition;
+                try {
+                    destPosition = currentPosition.sumPosition(rowMove, columnMove);
+                } catch (Exception e) {
+                    continue;
+                }
                 ChessSquareModel destSquare = this.board.getSquareModel(destPosition);
-                if (checkIfMoveLegal(currentSquare, destSquare) && (destPosition.isValid())) {
+                if (checkIfMoveLegal(currentSquare, destSquare)) {
                     listOfMoves.add(destSquare);
                 }
             }
