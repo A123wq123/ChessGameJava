@@ -15,14 +15,22 @@ public class Position {
     private final int coordY;
 
     /**
-     * Contractor of a coordinate element. It's x and y values are the same as if
-     * you would place this coordinate on a cartesian plan.
+     * Constructor of a coordinate element. It's x and y values are the same as if
+     * you would place this coordinate on a cartesian plan. If the coordinate is not valid
+     * the constructor throws a RuntimeException.
      * @param x the x coordinate of the position.
      * @param y the y coordinate of the position.
      */
     public Position(int x, int y) {
-        coordX = x;
-        coordY = y;
+        try {
+            coordX = x;
+            coordY = y;
+            if (!this.isValid()) {
+                throw new RuntimeException("Incorrect parameters");
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /**
@@ -57,7 +65,7 @@ public class Position {
      * the limits of the chess board.
      * @return boolean indicating if the coordinate is valid.
      */
-    public boolean isValid() {
+    private boolean isValid() {
         return (((this.coordX < ChessBoardModel.numberOfRows ) && (this.coordX >= 0))
                 && ((this.coordY < ChessBoardModel.numberOfRows ) && (this.coordY >= 0)));
     }
