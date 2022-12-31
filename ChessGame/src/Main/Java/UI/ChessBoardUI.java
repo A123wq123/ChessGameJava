@@ -11,9 +11,8 @@ import java.util.ArrayList;
  * @Author Charles Degrandpré
  * @Last_Updated 2022-12-23
  */
-public class ChessBoardUI {
+public class ChessBoardUI extends JFrame{
 
-    private final JFrame frame;
     private static final int numberOfRows = 8;
     private final ArrayList<ChessSquareUI> list = new ArrayList<>();
 
@@ -25,17 +24,17 @@ public class ChessBoardUI {
      * images.
      */
     public ChessBoardUI() {
-        frame = new JFrame(); // Create the JFrame.
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(450, 450);
-        frame.setTitle("ChessGame");
+        super(); // Create the JFrame.
+        super.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        super.setSize(450, 450);
+        super.setTitle("ChessGame");
 
-        frame.setLayout(new GridLayout(8, 8));
+        super.setLayout(new GridLayout(8, 8));
 
         this.addSquaresUI();
         this.addPieces();
 
-        frame.setVisible(true);
+        super.setVisible(true);
     }
 
     /**
@@ -46,7 +45,7 @@ public class ChessBoardUI {
         for (int row = 0; row < numberOfRows; row++) {
             for (int column = 0; column < numberOfRows; column++) {
                 ChessSquareUI square = new ChessSquareUI(column, row);
-                frame.add(square);
+                super.add(square);
                 list.add(square);
             }
         }
