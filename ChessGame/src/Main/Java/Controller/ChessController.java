@@ -1,12 +1,11 @@
-// This will be the class in charge of controlling the game, this includes the player's turn, if the king is in check
+package Controller;// This will be the class in charge of controlling the game, this includes
+// the player's turn, if the king is in check
 // and moving the pieces. Debating on if this class moves the pieces itself.
 
 
 
 
-//this section is crowded whit comment sorry if that bother but its for me(chocobeaver) to help orgenise things
-//and ask my question so the code get better i have weird way to write that a comment and what that comment stand for
-//so those are my way to write commentary-)
+
 
 //(specification about somethings)
 //---This Is A Title of a section of the code---//
@@ -27,6 +26,13 @@
 
 
 //---the code and variable---//
+
+import Logic.ChessBoardModel;
+import Logic.ChessSquareModel;
+import Logic.Colour;
+import Logic.Pieces.ChessABSPieceModel;
+import Utility.Position;
+
 import java.util.ArrayList;
 
 
@@ -83,11 +89,16 @@ public class ChessController
             ArrayList<ChessSquareModel> listOfMovesT = piecex.getListMoves( board.getSquareModel(positionClicked));
 
             //*controler need to check what are the legal move whitin the list of possible move
+            for(int i=0;i<listOfMovesT.size();i++){
+                if(CheckIfMoveLegal(piecex.XY,listOfMovesT[i])){
+                    //add in new array to return
+                }
+            }
             //*(i dont think theres other than checking if it put the king in check cause most is made in the piece part)
 
 
             //-function that check if the move we do either put our king in check or not block the current check
-            CheckIfMoveLegal(positionClicked,/*something that say were the pice selected can go */);
+            //CheckIfMoveLegal(positionClicked);/*something that say were the pice selected can go */
             //??i think this should be in a loop so it verifi every case the piece can do and
             //??if yes remove from the list that we sent to the highlight
 
@@ -96,11 +107,13 @@ public class ChessController
 
 
             //-send to the highliter which square are possible
-            (/* function that highlite*/)(listOfMovesT)
+            ArrayList<ChessSquareModel> listOfMovesT1 = listOfMovesT;
+            //(/* function that highlite*/) (listOfMovesT)
                 //prob gone be listOfMovesT add img redCircle something around those line
 
 
         }
+        return null;
     }
                                       //---section Obtain colour of player--//
     /**
@@ -157,10 +170,10 @@ public class ChessController
         //i wonder if this should be a function
         ChessABSPieceModel pieceC = board.getSquareModel(currentPosition).getPiece();
         Colour pieceColour = pieceC.colour;
-        if (pieceColour= black) {
-            boolean verifiIfKIngCheck = CheckKingCheck(white);
-        } else if (pieceColour=white) {
-            boolean verifiIfKIngCheck = CheckKingCheck(black);
+        if (pieceColour== Colour.BLACK) {
+            boolean verifiIfKIngCheck = CheckKingCheck(Colour.WHITE);
+        } else if (pieceColour==Colour.WHITE) {
+            boolean verifiIfKIngCheck = CheckKingCheck(Colour.BLACK);
         }
 
 
@@ -173,6 +186,7 @@ public class ChessController
         board.ChangeSquare(bTemp,destination);
 
 
+        boolean verifiIfKIngCheck = false;
         return verifiIfKIngCheck;
     }
 
@@ -196,11 +210,13 @@ public class ChessController
 
 
     //??i think im missing the way to get the second square
-    public ArrayList<ChessSquareModel> MovePiece(Position position2,)
+    public ArrayList<ChessSquareModel> MovePiece(Position position2)
     {//-via mouse listender get info whitch square got click then store it(supossed to be done higher up)
 
         //-check if it was one of the move that was possible
         //-(if no clear the memory who store which square if yes next step)
+        Position position = null;
+        Position listOfMovesT = null;
         if (position2 != position && position2 == listOfMovesT)
         {
             //-controler ask the spot whitch piece it have (null, white or blanck)
@@ -218,6 +234,7 @@ public class ChessController
 
 
         }
+        return null;
     }
 
 

@@ -102,4 +102,11 @@ public class ChessBoardModel {
             return getPositionOfBlackKing();
         }
     }
+
+    public void ChangeSquare(ChessSquareModel tempSquare, Position destination) {
+    }
+
+    public boolean isSquareUnderAttack(Colour oposingPlayer) {
+        return false;
+    }
 }

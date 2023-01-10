@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 public abstract class ChessABSPieceModel {
     protected ChessBoardModel board;
-    protected Colour colour;
+    public Colour colour;
 
     /**
      * Returns all the possibles moves the piece can make by receiving its square
